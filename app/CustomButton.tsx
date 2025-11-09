@@ -27,10 +27,10 @@ export default function CustomButton({ onClick }: Props) {
 
 	const imageSrc =
 		state === "pressed"
-			? "/images/button-pressed.png"
+			? "/images/button-pressed.svg"
 			: state === "hover"
-			? "/images/button-hover.png"
-			: "/images/button-default.png";
+			? "/images/button-hover.svg"
+			: "/images/button-default.svg";
 
 	return (
 		<div
@@ -39,6 +39,8 @@ export default function CustomButton({ onClick }: Props) {
 			onMouseLeave={handleMouseLeave}
 			onMouseDown={handleMouseDown}
 			onMouseUp={handleMouseUp}
+            onTouchStart={() => setState("pressed")}
+            onTouchEnd={() => {setState("default");}}			
 			onClick={onClick}
 		>
 			<img

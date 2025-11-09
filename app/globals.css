@@ -14,18 +14,18 @@
 
 /* базовый курсор — для всего сайта */
 html, body {
-	cursor: url("/images/cursor-arrow.png") 8 4, auto;
+	cursor: url("/images/cursor-arrow.svg") 8 4, auto;
 }
 
 /* для кликабельных элементов */
 button, a, [role="button"], .cursor-pointer {
-	cursor: url("/images/cursor-pointer.png") 8 4, pointer;
+	cursor: url("/images/cursor-pointer.svg") 8 4, pointer;
 }
 
 /* курсор-запрет (disabled, not allowed) */
 [disabled],
 .cursor-not-allowed {
-	cursor: url("/images/cursor-not-allowed.png") 8 4, not-allowed;
+	cursor: url("/images/cursor-not-allowed.svg") 8 4, not-allowed;
 }
 
 /* === задаём тему и шрифт Tailwind === */

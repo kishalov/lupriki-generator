@@ -3,45 +3,40 @@
 import { useState } from "react";
 
 type Props = {
-	text: string; // готовый текст для копирования
+	liked: boolean;
+	onToggle: () => void;
 };
 
-export default function CopyButton({ text }: Props) {
+export default function LikeButton({ liked, onToggle }: Props) {
 	const [state, setState] = useState<"default" | "hover" | "pressed">("default");
-	const [copied, setCopied] = useState(false);
 
 	function handleMouseEnter() {
 		if (state !== "pressed") setState("hover");
 	}
-
 	function handleMouseLeave() {
 		setState("default");
 	}
-
 	function handleMouseDown() {
 		setState("pressed");
 	}
-
 	function handleMouseUp() {
 		setState("hover");
+		onToggle();
 	}
-
-	async function handleClick() {
-		try {
-			await navigator.clipboard.writeText(text);
-			setCopied(true);
-			setTimeout(() => setCopied(false), 1200);
-		} catch (err) {
-			console.error("Ошибка копирования:", err);
-		}
+	function handleTouchStart() {
+		setState("pressed");
+	}
+	function handleTouchEnd() {
+		setState("default");
+		onToggle();
 	}
 
 	const imageSrc =
 		state === "pressed"
-			? "/images/copy-pressed.svg"
+			? "/images/like-pressed.svg"
 			: state === "hover"
-			? "/images/copy-hover.svg"
-			: "/images/copy-default.svg";
+			? "/images/like-hover.svg"
+			: "/images/like-default.svg";
 
 	return (
 		<div
@@ -50,19 +45,18 @@ export default function CopyButton({ text }: Props) {
 			onMouseLeave={handleMouseLeave}
 			onMouseDown={handleMouseDown}
 			onMouseUp={handleMouseUp}
-            onTouchStart={() => setState("pressed")}
-            onTouchEnd={() => {setState("default");}}
-			onClick={handleClick}
-			title={copied ? "Скопировано!" : "Скопировать историю"}
+			onTouchStart={handleTouchStart}
+			onTouchEnd={handleTouchEnd}
+			title={liked ? "Убрать из избранного" : "Добавить в избранное"}
 		>
 			<img
 				src={imageSrc}
-				alt="Copy"
+				alt="Like"
 				width={76}
 				height={85}
 				draggable={false}
 				className={`pointer-events-none transition-all duration-150 ${
-					copied ? "opacity-70" : "opacity-100"
+					liked ? "opacity-70" : "opacity-100"
 				}`}
 				loading="eager"
 			/>

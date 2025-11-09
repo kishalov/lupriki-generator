@@ -28,10 +28,10 @@ export default function BackButton({ onClick, disabled }: Props) {
 
 	const imageSrc =
 		state === "pressed"
-			? "/images/back-pressed.png"
+			? "/images/back-pressed.svg"
 			: state === "hover"
-			? "/images/back-hover.png"
-			: "/images/back-default.png";
+			? "/images/back-hover.svg"
+			: "/images/back-default.svg";
 
 	return (
 		<div
@@ -42,6 +42,11 @@ export default function BackButton({ onClick, disabled }: Props) {
 			onMouseLeave={handleMouseLeave}
 			onMouseDown={handleMouseDown}
 			onMouseUp={handleMouseUp}
+            onTouchStart={() => setState("pressed")}
+            onTouchEnd={() => {
+                setState("default");
+                
+            }}
 			onClick={!disabled ? onClick : undefined}
 		>
 			<img

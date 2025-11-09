@@ -28,10 +28,10 @@ export default function ForwardButton({ onClick, disabled }: Props) {
 
 	const imageSrc =
 		state === "pressed"
-			? "/images/forward-pressed.png"
+			? "/images/forward-pressed.svg"
 			: state === "hover"
-			? "/images/forward-hover.png"
-			: "/images/forward-default.png";
+			? "/images/forward-hover.svg"
+			: "/images/forward-default.svg";
 
 	return (
 		<div
@@ -42,6 +42,11 @@ export default function ForwardButton({ onClick, disabled }: Props) {
 			onMouseLeave={handleMouseLeave}
 			onMouseDown={handleMouseDown}
 			onMouseUp={handleMouseUp}
+            onTouchStart={() => setState("pressed")}
+            onTouchEnd={() => {
+                setState("default");
+                
+            }}
 			onClick={!disabled ? onClick : undefined}
 		>
 			<img

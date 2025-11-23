@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { TooltipPortal } from "../components/TooltipPortal"
+import { TooltipPortal } from "../logic/TooltipPortal"
 
 export function ItemHoverTooltip({
 	text,

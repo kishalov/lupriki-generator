@@ -93,7 +93,7 @@ function buildFullIngredients(): InventoryItem[] {
 					isOver ? "scale-105" : "scale-100"
 				}`}
 			>
-				<img src="/images/cauldron.svg" className="w-full h-full" />
+				<img src="/images/cauldron.svg" className="w-100 lg:w-full h-full" />
 
 				{/* Иконки ингредиентов в котле */}
 				<div className="absolute inset-0 grid grid-cols-2 grid-rows-2 place-items-center px-20 pb-15 pt-10 pointer-events-none">

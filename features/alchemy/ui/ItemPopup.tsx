@@ -6,6 +6,7 @@ import { ItemIcon } from "../ui/ItemIcon"
 import { Button } from "@/components/ui/button"
 import { useCauldron } from "../hooks/useCauldron"
 import { useInventory } from "../hooks/useInventory"
+import { useCallback } from "react"
 
 export function ItemPopup() {
 	const { item, closeItem } = useItemPopup()
@@ -13,6 +14,11 @@ export function ItemPopup() {
 	const removeItem = useInventory((s) => s.removeItem)
 
 	if (!item) return null
+
+	// Отключаем dnd-kit внутри попапа
+	const stopDnd = useCallback((e: any) => {
+		e.stopPropagation()
+	}, [])
 
 	async function handleAddToCauldron() {
 		if (!item) return
@@ -31,7 +37,13 @@ export function ItemPopup() {
 
 	return (
 		<Popup isOpen={!!item} onClose={closeItem}>
-			<div className="flex flex-col gap-4 p-2 w-[280px]">
+			{/* ВАЖНО: перехватываем pointer-события */}
+			<div
+				className="flex flex-col gap-4 p-2 w-[280px]"
+				onPointerDown={stopDnd}
+				onTouchStart={stopDnd}
+				onMouseDown={stopDnd}
+			>
 
 				<div className="flex justify-center">
 					<ItemIcon item={item} size={64} showQuantity={false} />
@@ -50,7 +62,12 @@ export function ItemPopup() {
 				{/* Кнопка только для ингредиентов + только на мобильных */}
 				{!isPotion && (
 					<div className="flex justify-center lg:hidden">
-						<Button onClick={handleAddToCauldron}>
+						<Button
+							onPointerDown={(e) => {
+								e.stopPropagation()
+								handleAddToCauldron()
+							}}
+						>
 							В котёл
 						</Button>
 					</div>

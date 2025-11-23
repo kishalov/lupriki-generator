@@ -1,26 +1,256 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+	--card-green: #698b58;
+	--card-yellow: #c5b34b;
+	--card-blue: #bcc8d8;
+	--card-pink: #bd7f96;
+  --bg-grass: #698b58;
+	--grass-pattern: url("/patterns/grass.svg");
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility bg-grass {
+	background-color: var(--bg-grass);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility bg-grass-pattern {
+	background-image: var(--grass-pattern);
+	background-repeat: repeat;
+	background-size: 266px 256px;
+}
+@utility card-green {
+	background-color: var(--card-green);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility card-yellow {
+	background-color: var(--card-yellow);
+}
+
+@utility card-blue {
+	background-color: var(--card-blue);
+}
+
+@utility card-pink {
+	background-color: var(--card-pink);
+}
+
+/* -------------------- */
+/*     BUTTON 9         */
+/* -------------------- */
+
+@utility btn-9 {
+	border-width: 14px;
+	border-style: solid;
+	border-image-source: url("/images/button/button-normal.svg");
+	border-image-slice: 22% fill;
+	border-image-repeat: stretch;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+	.btn-9 {
+		border-width: 22px;
+	}
+}
+
+/* Hover/active */
+@utility btn-9-hover {
+	border-image-source: url("/images/button/button-hover.svg");
+	border-image-slice: 22% fill;
+	cursor: pointer;
+}
+
+@utility btn-9-active {
+	border-image-source: url("/images/button/button-active.svg");
+	border-image-slice: 22% fill;
+	cursor: pointer;
+}
+
+
+/* -------------------- */
+/*       CARD 9         */
+/* -------------------- */
+
+@utility card-9 {
+	border-width: 20px;
+	border-style: solid;
+	border-image-source: url("/images/notebook.svg");
+	border-image-slice: 22% fill;
+	border-image-repeat: stretch;
+	background-color: transparent;
+	box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+	.card-9 {
+		border-width: 32px;
+	}
+}
+
+
+/* -------------------- */
+/*     STICKER 9        */
+/* -------------------- */
+
+@utility sticker-9 {
+	border-width: 22px;
+	border-style: solid;
+	border-image-source: url("/images/sticker.svg");
+	border-image-slice: 32% fill;
+	border-image-repeat: stretch;
+	background-color: transparent;
+	box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+	.sticker-9 {
+		border-width: 32px;
+	}
+}
+
+
+/* -------------------- */
+/*      DIALOG 9        */
+/* -------------------- */
+
+@utility dialog-9 {
+	border-width: 8px;
+	border-style: solid;
+	border-image-source: url("/images/dialog.svg");
+	border-image-slice: 12% 12% 22% 12% fill;
+	border-image-repeat: stretch;
+	background-color: transparent;
+	box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+	.dialog-9 {
+		border-width: 12px;
+	}
+}
+
+
+/* -------------------- */
+/*      SELECT 9        */
+/* -------------------- */
+
+@utility select-9 {
+	border-width: 14px;
+	border-style: solid;
+	border-image-source: url("/images/select.svg");
+	border-image-slice: 22% fill;
+	border-image-repeat: stretch;
+	background-color: transparent;
+	box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+	.select-9 {
+		border-width: 22px;
+	}
+}
+
+
+/* -------------------- */
+/*    SLIDE DOWN 9      */
+/* -------------------- */
+
+@utility slide-down-9 {
+	border-width: 14px;
+	border-style: solid;
+	border-image-source: url("/images/slide-down.svg");
+	border-image-slice: 22% fill;
+	border-image-repeat: stretch;
+	background-color: transparent;
+	box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+	.slide-down-9 {
+		border-width: 22px;
+	}
+}
+
+
+/* -------------------- */
+/*       SLOT 9         */
+/* -------------------- */
+
+@utility slot-9 {
+	border-width: 8px;
+	border-style: solid;
+	border-image-source: url("/images/inventory-slot.svg");
+	border-image-slice: 12% fill;
+	border-image-repeat: stretch;
+	background-color: transparent;
+	box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+	.slot-9 {
+		border-width: 12px;
+	}
+}
+
+
+/* -------------------- */
+/*    SCROLLBAR 9       */
+/* -------------------- */
+
+@utility scrollbar-9 {
+	&::-webkit-scrollbar {
+		width: 16px;
+	}
+
+	&::-webkit-scrollbar-track {
+		border-width: 1px;
+		border-style: solid;
+		background-color: #f9e8d8;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-width: 10px;
+		border-style: solid;
+		border-image-source: url("/images/grabber.svg");
+		border-image-slice: 10% fill;
+		border-image-repeat: stretch;
+	}
+}
+
+@media (min-width: 1024px) {
+	.scrollbar-9::-webkit-scrollbar {
+		width: 30px;
+	}
+
+	.scrollbar-9::-webkit-scrollbar-thumb {
+		border-width: 20px;
+	}
+}
+
+
+/* --- Кастомный курсор по умолчанию --- */
+html, body {
+	cursor: url("/icons/cursor-arrow.svg") 0 0, auto;
+}
+
+/* --- Курсор для интерактивных элементов --- */
+button,
+a,
+[role="button"],
+.cursor-pointer,
+input[type="button"],
+input[type="submit"] {
+	cursor: url("/icons/cursor-pointer.svg") 0 0, pointer;
+}
+
+*:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.btn-children-press:active > * {
+	transform: translateY(4px);
+	
 }

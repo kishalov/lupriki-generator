@@ -1,0 +1,10 @@
+export type GenerateMode =
+	| "creature"     // существа
+	| "character"    // персонажи
+	| "location"     // локации
+	| "item"         // вещички
+	| "anomaly"      // аномалии
+	| "fruit"        // фрукты
+	| "vegetable"    // овощи
+	| "sweet"        // сладости
+	| "dimension";   // измерения

@@ -223,14 +223,10 @@
 	}
 }
 
-* {
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-}
 
 /* --- Кастомный курсор по умолчанию --- */
 html, body {
 	cursor: url("/icons/cursor-arrow.svg") 0 0, auto;
-	touch-action: manipulation;
 }
 
 /* --- Курсор для интерактивных элементов --- */
@@ -251,9 +247,4 @@ input[type="submit"] {
 .btn-children-press:active > * {
 	transform: translateY(4px);
 	
-}
-
-button {
-	touch-action: manipulation;
-	-webkit-tap-highlight-color: transparent;
 }

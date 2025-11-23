@@ -6,7 +6,6 @@ import { ItemIcon } from "../ui/ItemIcon"
 import { Button } from "@/components/ui/button"
 import { useCauldron } from "../hooks/useCauldron"
 import { useInventory } from "../hooks/useInventory"
-import { useCallback } from "react"
 
 export function ItemPopup() {
 	const { item, closeItem } = useItemPopup()
@@ -15,15 +14,8 @@ export function ItemPopup() {
 
 	if (!item) return null
 
-	// Отключаем dnd-kit внутри попапа
-	const stopDnd = useCallback((e: any) => {
-		e.stopPropagation()
-	}, [])
-
 	async function handleAddToCauldron() {
 		if (!item) return
-
-		// Зелья нельзя класть
 		if (item.id.startsWith("potion_")) return
 
 		const ok = await addToCauldron(item.id)
@@ -37,14 +29,11 @@ export function ItemPopup() {
 
 	return (
 		<Popup isOpen={!!item} onClose={closeItem}>
-			{/* ВАЖНО: перехватываем pointer-события */}
+			{/* Глушим только pointer события, БЕЗ stopPropagation */}
 			<div
 				className="flex flex-col gap-4 p-2 w-[280px]"
-				onPointerDown={stopDnd}
-				onTouchStart={stopDnd}
-				onMouseDown={stopDnd}
+				style={{ touchAction: "manipulation" }} // ⚡ ключ к фиксe на мобилках
 			>
-
 				<div className="flex justify-center">
 					<ItemIcon item={item} size={64} showQuantity={false} />
 				</div>
@@ -59,15 +48,9 @@ export function ItemPopup() {
 					</div>
 				)}
 
-				{/* Кнопка только для ингредиентов + только на мобильных */}
 				{!isPotion && (
 					<div className="flex justify-center lg:hidden">
-						<Button
-							onPointerDown={(e) => {
-								e.stopPropagation()
-								handleAddToCauldron()
-							}}
-						>
+						<Button onClick={handleAddToCauldron}>
 							В котёл
 						</Button>
 					</div>

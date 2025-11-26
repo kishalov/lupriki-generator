@@ -4,6 +4,7 @@ import { useInventory } from "../hooks/useInventory"
 import { Card, CardDescription } from "@/components/ui/card"
 import { InventorySlot } from "../ui/InventorySlot"
 import { useCory } from "../hooks/useCory"
+import { StickerCard } from "@/components/ui/sticker-card"
 
 export function Inventory() {
 	const { items } = useInventory()
@@ -24,7 +25,7 @@ export function Inventory() {
 	))
 
 	return (
-		<Card className="h-full overflow-y-auto overflow-x-hidden flex flex-col items-center gap-3 scrollbar-9">
+		<StickerCard className="h-full overflow-y-auto overflow-x-hidden flex flex-col items-center gap-3 pr-3 scrollbar-9">
 			<div className="w-full flex items-center justify-between">
 				<p className="text-[32px]">Инвентарь</p>
 					<div className="flex gap-2 items-center">
@@ -33,9 +34,9 @@ export function Inventory() {
 					</div>
 			</div>
 
-			<div className="grid grid-cols-3 gap-2">
+			<div className="grid grid-cols-3 lg:grid-cols-7 gap-2">
 				{[...filledSlots, ...emptySlots]}
 			</div>
-		</Card>
+		</StickerCard>
 	)
 }

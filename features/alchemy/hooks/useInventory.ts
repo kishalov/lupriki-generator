@@ -223,11 +223,6 @@ await supabase.from("inventory").upsert({
 	rarity: target.rarity ?? null,
 	hue: target.hue ?? null,
 	name: target.name ?? null,
-
-	// 🔥 то же правило
-	type: id.startsWith("potion_")
-		? null
-		: target.type ?? null,
 })
 
 }

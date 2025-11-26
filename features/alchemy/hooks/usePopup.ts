@@ -2,7 +2,7 @@
 
 import { create } from "zustand"
 
-type PopupType = "quests" | "adventure" | "shop" | "notebook" | null
+type PopupType = "quests" | "adventure" | "shop" | "cauldron" | "inventory" | null
 
 type PopupState = {
 	open: PopupType

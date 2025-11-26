@@ -12,13 +12,13 @@ export type Ingredient = {
 
 export const INGREDIENTS: Ingredient[] = [
 	{
-		id: "rosinka_svetlaya",
-		name: "Росинка Светлая",
-		icon: ingredientIcons["rosinka_svetlaya"],
+		id: "heartberry",
+		name: "Сердцеягода",
+		icon: ingredientIcons["heartberry"],
 		rarity: 1,
 		type: "plant",
-		flavor: "Мягко светится в руках. Любит утренний туман.",
-		color: "#87d6ff",
+		flavor: "Жёлтый плод в форме сердца, растущий в тёплых тенях Питучего леса. Мягко пульсирует, если держать в ладонях, будто вспоминая ритм того места, где вырос",
+		color: "#fecf00",
 	},
 	{
 		id: "list_teni",

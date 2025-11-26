@@ -14,7 +14,7 @@ export function Button({ className, tooltip, ...props }: ButtonProps) {
 			{...props}
 			className={cn(
 				"relative",
-				"btn-9 font-bold uppercase text-[16px] flex items-center justify-center w-full text-[#fb6950] select-none group",
+				"btn-9 font-bold uppercase text-[16px] flex items-center justify-center w-full text-white select-none group",
 				"hover:btn-9-hover active:btn-9-active disabled:opacity-35",
 				"btn-children-press",
 				"text-shadow-[0_-1px_0_#000,0_1px_0_#000,1px_0_0_#000,-1px_0_0_#000]",

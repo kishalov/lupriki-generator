@@ -9,7 +9,7 @@ export function StickerCard({
 		<div
 			data-slot="sticker-card"
 			className={cn(
-				"sticker-9",
+				"sticker-9 scrollbar-9",
 				className
 			)}
 			{...props}

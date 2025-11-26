@@ -46,17 +46,10 @@ export function Popup({ isOpen, onClose, title, children }: PopupProps) {
 						animate={{ opacity: 1, scale: 1, y: 0 }}
 						exit={{ opacity: 0, scale: 0.9, y: 20 }}
 						transition={{ duration: 0.15 }}
-						className="fixed z-999 inset-0 flex items-center justify-center p-4"
+						className="fixed z-999 inset-0 flex items-center justify-center"
 					>
-						<Card className="flex flex-col gap-3">
-
-							{/* Контент — скролл только на мобильных */}
-							<div
-								className="
-									max-h-[70vh] overflow-y-auto p-2
-									md:max-h-none md:overflow-visible md:p-0 scrollbar-9
-								"
-							>
+						<Card className="flex flex-col gap-3 w-[80%] lg:w-[50%]">
+							<div className="max-h-[70vh] overflow-y-auto">
 								{children}
 							</div>
 

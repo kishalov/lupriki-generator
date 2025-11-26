@@ -45,10 +45,10 @@ export function LoginButton() {
 			className="flex items-center gap-3 text-[28px] hover:scale-110 active:scale-90 transition"
 		>
 			<Image
-				src="/icons/user.svg"
+				src="/images/user.svg"
 				alt="user"
-				width={32}
-				height={32}
+				width={48}
+				height={48}
 			/>
 			Выйти
 		</button>

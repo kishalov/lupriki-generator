@@ -196,12 +196,14 @@
 @utility scrollbar-9 {
 	&::-webkit-scrollbar {
 		width: 16px;
+		
 	}
 
 	&::-webkit-scrollbar-track {
 		border-width: 1px;
 		border-style: solid;
 		background-color: #f9e8d8;
+		margin-left: 10px;
 	}
 
 	&::-webkit-scrollbar-thumb {
@@ -247,4 +249,14 @@ input[type="submit"] {
 .btn-children-press:active > * {
 	transform: translateY(4px);
 	
+}
+
+@keyframes float {
+  0%   { transform: translate(-50%, -50%) translateY(0px) rotate(var(--rot)); }
+  50%  { transform: translate(-50%, -50%) translateY(-3px) rotate(var(--rot)); }
+  100% { transform: translate(-50%, -50%) translateY(0px) rotate(var(--rot)); }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
 }

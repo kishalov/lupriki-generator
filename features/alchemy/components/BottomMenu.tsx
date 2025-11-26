@@ -38,10 +38,6 @@ export function BottomMenu() {
 				<p>Лавка Питрица</p>
 			</Button>
 
-			<Button onClick={() => openPopup("notebook")} tooltip="Дневник Люпи">
-				<p>Блокнот</p>
-			</Button>
-
 			{/* Кнопка музыки */}
 			<Button onClick={handleMusicClick}>
 				<Image

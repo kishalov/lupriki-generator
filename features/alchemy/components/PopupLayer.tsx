@@ -6,8 +6,9 @@ import { AdventurePopup } from "./AdventurePopup"
 import { useAdventure } from "../hooks/useAdventures"
 import { useInventory } from "../hooks/useInventory"
 import { QuestBoardPopup } from "./QuestBoardPopup"
-import { NotebookPopup } from "./NotebookPopup"
 import { ShopPopup } from "./ShopPopup"
+import { CauldronPopup } from "./CauldronPopup"
+import { InventoryPopup } from "./InventoryPopup"
 
 export function PopupLayer() {
 	const { open, closePopup } = usePopup()
@@ -84,13 +85,20 @@ export function PopupLayer() {
 				<ShopPopup />
 			</Popup>
 
-			{/* Блокнот Люпи */}
 			<Popup
-				isOpen={open === "notebook"}
+				isOpen={open === "cauldron"}
 				onClose={closePopup}
-				title="Блокнот"
+				title="Котел"
 			>
-				<NotebookPopup />
+				<CauldronPopup />
+			</Popup>
+
+			<Popup
+				isOpen={open === "inventory"}
+				onClose={closePopup}
+				title="Рюкзак"
+			>
+				<InventoryPopup />
 			</Popup>
 		</>
 	)

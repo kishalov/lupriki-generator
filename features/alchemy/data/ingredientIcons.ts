@@ -1,5 +1,5 @@
 export const ingredientIcons: Record<string, string> = {
-	rosinka_svetlaya: "/images/ingredients/rosinka_svetlaya.svg",
+	heartberry: "/images/ingredients/heartberry.svg",
 	list_teni: "/images/ingredients/list_teni.svg",
 	zerno_sherkh: "/images/ingredients/zerno_sherkh.svg",
 	ehokamen: "/images/ingredients/ehokamen.svg",

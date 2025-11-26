@@ -67,7 +67,13 @@ export function ShopPopup() {
             </StickerCard>
 
             <StickerCard>
-                <p className="text-xl font-bold mb-3">Инвентарь</p>
+			<div className="w-full flex items-center justify-between">
+				<p className="text-[32px]">Инвентарь</p>
+					<div className="flex gap-2 items-center">
+						<img src="/images/kory.png" className="w-8 h-full" />
+						<p className="text-[32px]">{cory}</p>
+					</div>
+			</div>
                 <div className="flex gap-3 flex-wrap">
                     {userItems.map((item) => (
                         <div

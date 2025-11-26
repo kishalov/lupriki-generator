@@ -48,7 +48,7 @@ export function Popup({ isOpen, onClose, title, children }: PopupProps) {
 						transition={{ duration: 0.15 }}
 						className="fixed z-999 inset-0 flex items-center justify-center"
 					>
-						<Card className="flex flex-col gap-3 w-[80%] lg:w-[50%]">
+						<Card className="flex flex-col gap-3 w-[90%] lg:w-[50%]">
 							<div className="max-h-[70vh] overflow-y-auto">
 								{children}
 							</div>

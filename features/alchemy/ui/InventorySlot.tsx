@@ -25,7 +25,7 @@ export function InventorySlot({ item }: SlotProps) {
 	}
 
 	return (
-		<div className="relative w-20 h-20 flex items-center justify-center slot-9 select-none">
+		<div className="relative w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center slot-9 select-none">
 			{item && (
 
 				<div
@@ -33,7 +33,7 @@ export function InventorySlot({ item }: SlotProps) {
 					{...attributes}
 					{...listeners}
 					onClick={() => item && openItem(item)}
-					className="w-20 h-20 flex items-center justify-center cursor-pointer"
+					className="w-12 h-12 lg:w-20 lg:h-20 flex items-center justify-center cursor-pointer"
 				>
 					<ItemIcon item={item} />
 				</div>
